@@ -15,6 +15,8 @@
 		6644C571244F740C009B8DD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6644C570244F740C009B8DD6 /* Assets.xcassets */; };
 		6644C574244F740C009B8DD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6644C572244F740C009B8DD6 /* LaunchScreen.storyboard */; };
 		6644C57F244F740C009B8DD6 /* MarvelAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6644C57E244F740C009B8DD6 /* MarvelAppTests.swift */; };
+		6644C58A244F8240009B8DD6 /* MainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6644C589244F8240009B8DD6 /* MainCollectionViewController.swift */; };
+		6644C58C244F8262009B8DD6 /* ComicsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6644C58B244F8262009B8DD6 /* ComicsCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		6644C57A244F740C009B8DD6 /* MarvelAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6644C57E244F740C009B8DD6 /* MarvelAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAppTests.swift; sourceTree = "<group>"; };
 		6644C580244F740C009B8DD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6644C589244F8240009B8DD6 /* MainCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewController.swift; sourceTree = "<group>"; };
+		6644C58B244F8262009B8DD6 /* ComicsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,13 +85,12 @@
 		6644C563244F740A009B8DD6 /* MarvelApp */ = {
 			isa = PBXGroup;
 			children = (
+				6644C591244F82D9009B8DD6 /* Storyboards */,
+				6644C590244F82CE009B8DD6 /* Supporting Files */,
+				6644C58F244F82B9009B8DD6 /* Cells */,
+				6644C58D244F8284009B8DD6 /* Controllers */,
 				6644C564244F740A009B8DD6 /* AppDelegate.swift */,
 				6644C566244F740A009B8DD6 /* SceneDelegate.swift */,
-				6644C568244F740A009B8DD6 /* ViewController.swift */,
-				6644C56A244F740A009B8DD6 /* Main.storyboard */,
-				6644C570244F740C009B8DD6 /* Assets.xcassets */,
-				6644C572244F740C009B8DD6 /* LaunchScreen.storyboard */,
-				6644C575244F740C009B8DD6 /* Info.plist */,
 				6644C56D244F740B009B8DD6 /* MarvelApp.xcdatamodeld */,
 			);
 			path = MarvelApp;
@@ -100,6 +103,49 @@
 				6644C580244F740C009B8DD6 /* Info.plist */,
 			);
 			path = MarvelAppTests;
+			sourceTree = "<group>";
+		};
+		6644C58D244F8284009B8DD6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6644C568244F740A009B8DD6 /* ViewController.swift */,
+				6644C58E244F8292009B8DD6 /* CollectionViews */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		6644C58E244F8292009B8DD6 /* CollectionViews */ = {
+			isa = PBXGroup;
+			children = (
+				6644C589244F8240009B8DD6 /* MainCollectionViewController.swift */,
+				6644C58B244F8262009B8DD6 /* ComicsCollectionViewController.swift */,
+			);
+			path = CollectionViews;
+			sourceTree = "<group>";
+		};
+		6644C58F244F82B9009B8DD6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		6644C590244F82CE009B8DD6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6644C575244F740C009B8DD6 /* Info.plist */,
+				6644C570244F740C009B8DD6 /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6644C591244F82D9009B8DD6 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				6644C56A244F740A009B8DD6 /* Main.storyboard */,
+				6644C572244F740C009B8DD6 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +250,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6644C569244F740A009B8DD6 /* ViewController.swift in Sources */,
+				6644C58A244F8240009B8DD6 /* MainCollectionViewController.swift in Sources */,
+				6644C58C244F8262009B8DD6 /* ComicsCollectionViewController.swift in Sources */,
 				6644C565244F740A009B8DD6 /* AppDelegate.swift in Sources */,
 				6644C56F244F740B009B8DD6 /* MarvelApp.xcdatamodeld in Sources */,
 				6644C567244F740A009B8DD6 /* SceneDelegate.swift in Sources */,
@@ -368,7 +416,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QZE9PCCX24;
-				INFOPLIST_FILE = MarvelApp/Info.plist;
+				INFOPLIST_FILE = "MarvelApp/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -386,7 +434,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QZE9PCCX24;
-				INFOPLIST_FILE = MarvelApp/Info.plist;
+				INFOPLIST_FILE = "MarvelApp/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
