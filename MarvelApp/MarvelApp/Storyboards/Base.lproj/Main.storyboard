@@ -51,10 +51,10 @@
             </objects>
             <point key="canvasLocation" x="2099" y="121"/>
         </scene>
-        <!--View Controller-->
+        <!--Details View Controller-->
         <scene sceneID="YNS-2T-G2n">
             <objects>
-                <viewController id="Nny-4O-eTn" sceneMemberID="viewController">
+                <viewController id="Nny-4O-eTn" customClass="DetailsViewController" customModule="MarvelApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kny-e9-gbI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -192,6 +192,12 @@
                         <viewLayoutGuide key="safeArea" id="J5o-2U-Jiz"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ik7-Iz-aFh"/>
+                    <connections>
+                        <outlet property="comicsCollectionView" destination="30W-Sa-qHE" id="mDL-co-cAI"/>
+                        <outlet property="seriesCollectionView" destination="Hrg-T3-ojY" id="Ytb-Jx-b3z"/>
+                        <outlet property="uiDescription" destination="lUS-2z-cYr" id="6fH-Al-vTy"/>
+                        <outlet property="uiImageView" destination="qLn-md-kwT" id="GYX-7x-7mM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nKl-gn-oYH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -285,7 +291,7 @@
         <!--Favoritos-->
         <scene sceneID="VhQ-dK-8km">
             <objects>
-                <collectionViewController id="9dG-5S-xtN" customClass="ComicsCollectionViewController" customModule="MarvelApp" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="9dG-5S-xtN" customClass="FavoritesCollectionViewController" customModule="MarvelApp" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ZAO-2Q-x0u">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -10,8 +10,9 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class ComicsCollectionViewController: UICollectionViewController {
+class FavoritesCollectionViewController: UICollectionViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
@@ -30,7 +31,7 @@ class ComicsCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 0
+        return 1
     }
 
 

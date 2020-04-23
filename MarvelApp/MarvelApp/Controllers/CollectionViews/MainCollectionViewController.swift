@@ -12,18 +12,7 @@ private let reuseIdentifier = "Cell"
 
 class MainCollectionViewController: UICollectionViewController {
 
-    let searchController = UISearchController(searchResultsController: nil)
-      
-      var filteredHeroes: [String] = []
-      var heroes: [String] = []
-      var isSearchBarEmpty: Bool {
-        return searchController.searchBar.text?.isEmpty ?? true
-      }
-      
-      var isFiltering: Bool {
-        return searchController.isActive && !isSearchBarEmpty
-      }
-
+    let viewModel = MainCollectionViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +23,11 @@ class MainCollectionViewController: UICollectionViewController {
     }
     
     func configureSearchBar() {
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Buscar Herois"
+        viewModel.searchController.searchResultsUpdater = self
+        viewModel.searchController.obscuresBackgroundDuringPresentation = false
+        viewModel.searchController.searchBar.placeholder = "Buscar Herois"
 
-        navigationItem.searchController = searchController
+        navigationItem.searchController = viewModel.searchController
         navigationItem.titleView?.backgroundColor = UIColor.white
         navigationItem.titleView?.tintColor = UIColor.white
         definesPresentationContext = true
@@ -61,10 +50,10 @@ class MainCollectionViewController: UICollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if isFiltering {
-                return filteredHeroes.count
+        if viewModel.isFiltering {
+                return viewModel.filteredHeroes.count
               }
-              return heroes.count
+              return viewModel.heroes.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
