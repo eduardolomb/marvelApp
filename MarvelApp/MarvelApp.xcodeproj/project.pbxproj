@@ -24,6 +24,8 @@
 		66BD2DC72451104E00AC39F7 /* ComicsCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BD2DC62451104E00AC39F7 /* ComicsCollectionViewModel.swift */; };
 		66BD2DC92451127800AC39F7 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BD2DC82451127800AC39F7 /* DetailsViewModel.swift */; };
 		66BD2DCB2451132800AC39F7 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BD2DCA2451132800AC39F7 /* DetailsViewController.swift */; };
+		66EA8AA42452421500F6E9B8 /* marvelNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66EA8AA32452421500F6E9B8 /* marvelNetwork.framework */; };
+		66EA8AA52452421500F6E9B8 /* marvelNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 66EA8AA32452421500F6E9B8 /* marvelNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,20 @@
 			remoteInfo = MarvelApp;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		66EA8AA2245241C100F6E9B8 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				66EA8AA52452421500F6E9B8 /* marvelNetwork.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6644C561244F740A009B8DD6 /* MarvelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +74,7 @@
 		66BD2DC62451104E00AC39F7 /* ComicsCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsCollectionViewModel.swift; sourceTree = "<group>"; };
 		66BD2DC82451127800AC39F7 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		66BD2DCA2451132800AC39F7 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		66EA8AA32452421500F6E9B8 /* marvelNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = marvelNetwork.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66EA8AA42452421500F6E9B8 /* marvelNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +102,7 @@
 				6644C563244F740A009B8DD6 /* MarvelApp */,
 				6644C57D244F740C009B8DD6 /* MarvelAppTests */,
 				6644C562244F740A009B8DD6 /* Products */,
+				66EA8A9B2452416500F6E9B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -193,6 +212,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		66EA8A9B2452416500F6E9B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				66EA8AA32452421500F6E9B8 /* marvelNetwork.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -203,6 +230,7 @@
 				6644C55D244F740A009B8DD6 /* Sources */,
 				6644C55E244F740A009B8DD6 /* Frameworks */,
 				6644C55F244F740A009B8DD6 /* Resources */,
+				66EA8AA2245241C100F6E9B8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -468,6 +496,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QZE9PCCX24;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "MarvelApp/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -486,6 +518,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QZE9PCCX24;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "MarvelApp/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
