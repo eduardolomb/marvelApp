@@ -20,6 +20,8 @@
 		6644C595244F84AE009B8DD6 /* Comics_SeriesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6644C593244F84AE009B8DD6 /* Comics_SeriesCollectionViewCell.xib */; };
 		6644C59A244F84DC009B8DD6 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6644C598244F84DC009B8DD6 /* MainCollectionViewCell.swift */; };
 		6644C59B244F84DC009B8DD6 /* MainCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6644C599244F84DC009B8DD6 /* MainCollectionViewCell.xib */; };
+		665329C6245245A8004D04B0 /* marvelNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665329C5245245A8004D04B0 /* marvelNetwork.framework */; };
+		665329C7245245A8004D04B0 /* marvelNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 665329C5245245A8004D04B0 /* marvelNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		66BD2DC52451103E00AC39F7 /* MainCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BD2DC42451103E00AC39F7 /* MainCollectionViewModel.swift */; };
 		66BD2DC72451104E00AC39F7 /* ComicsCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BD2DC62451104E00AC39F7 /* ComicsCollectionViewModel.swift */; };
 		66BD2DC92451127800AC39F7 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BD2DC82451127800AC39F7 /* DetailsViewModel.swift */; };
@@ -48,6 +50,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		665329C8245245A8004D04B0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				665329C7245245A8004D04B0 /* marvelNetwork.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		66BD2DE124511A4B00AC39F7 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -79,6 +92,8 @@
 		6644C593244F84AE009B8DD6 /* Comics_SeriesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Comics_SeriesCollectionViewCell.xib; sourceTree = "<group>"; };
 		6644C598244F84DC009B8DD6 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		6644C599244F84DC009B8DD6 /* MainCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCollectionViewCell.xib; sourceTree = "<group>"; };
+		665329C124524575004D04B0 /* marvelNetwork 18.50.47.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "marvelNetwork 18.50.47.framework"; sourceTree = "<group>"; };
+		665329C5245245A8004D04B0 /* marvelNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = marvelNetwork.framework; sourceTree = "<group>"; };
 		66BD2DC42451103E00AC39F7 /* MainCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewModel.swift; sourceTree = "<group>"; };
 		66BD2DC62451104E00AC39F7 /* ComicsCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsCollectionViewModel.swift; sourceTree = "<group>"; };
 		66BD2DC82451127800AC39F7 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
@@ -109,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				665329C6245245A8004D04B0 /* marvelNetwork.framework in Frameworks */,
 				66BD2DD324511A4B00AC39F7 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,6 +253,8 @@
 		66BD2DD124511A4B00AC39F7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				665329C5245245A8004D04B0 /* marvelNetwork.framework */,
+				665329C124524575004D04B0 /* marvelNetwork 18.50.47.framework */,
 				66BD2DD224511A4B00AC39F7 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
@@ -299,6 +317,7 @@
 				66BD2DCC24511A4B00AC39F7 /* Sources */,
 				66BD2DCD24511A4B00AC39F7 /* Frameworks */,
 				66BD2DCE24511A4B00AC39F7 /* Resources */,
+				665329C8245245A8004D04B0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -660,6 +679,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QZE9PCCX24;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MarvelTodayExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -679,6 +702,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QZE9PCCX24;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MarvelTodayExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

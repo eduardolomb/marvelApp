@@ -1,0 +1,11 @@
+framework module marvelNetwork {
+  umbrella header "marvelNetwork.h"
+
+  export *
+  module * { export * }
+}
+
+module marvelNetwork.Swift {
+    header "marvelNetwork-Swift.h"
+    requires objc
+}
