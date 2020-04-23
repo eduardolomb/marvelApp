@@ -8,17 +8,27 @@
 
 import Foundation
 
+public class Request {
+public var charactersData: Characters?
+private let limit = 20
+public var offset = 10
 
-class Request {
-
-    
-    func request() {
-        let unPackedurl = URL(string: "https://gateway.marvel.com:443/v1/public/characters?limit=10&offset=100&apikey=757948084785697b972e93938cc60c53")
-        guard let url = unPackedurl else { return }
-        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
-            guard let data = data else { return }
-                print(String(data: data, encoding: .utf8)!)
-        }
-        task.resume()
+func request() -> (Int, String) {
+  guard let url = URL(string: "https://gateway.marvel.com:443/v1/public/characters?limit=\(limit)&offset=\(offset)&apikey=757948084785697b972e93938cc60c53") else { return (0, "could not unpack url") }
+         URLSession.shared.dataTask(with: url) { (data, response
+             , error) in
+             guard let data = data else { return }
+             do {
+                 let decoder = JSONDecoder()
+                 let charactersData = try decoder.decode(Characters.self, from: data)
+                DispatchQueue.main.async {
+                    self.charactersData = charactersData
+                }
+             } catch let err {
+                 print("Error", err)
+             }
+             }.resume()
+        return (0, "could not unpack data")
     }
+
 }
