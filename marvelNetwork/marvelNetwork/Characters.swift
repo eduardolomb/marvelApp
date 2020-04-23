@@ -9,7 +9,7 @@
 import Foundation
 
 // MARK: - Characters
-struct Characters: Codable {
+public struct Characters: Codable {
     let code: Int
     let status, copyright, attributionText, attributionHTML: String
     let etag: String
