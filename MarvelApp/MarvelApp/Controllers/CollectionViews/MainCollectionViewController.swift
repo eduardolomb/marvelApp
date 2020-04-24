@@ -69,11 +69,15 @@ class MainCollectionViewController: UIViewController, UICollectionViewDelegate, 
         if let url = URL(string: viewModel.heroes[indexPath.row].image) {
             cell.image = url
         }
-
         return cell
 
     }
-
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.item > viewModel.heroes.count/2 {
+            viewModel.getInformation()
+        }
+    }
+    
     // MARK: UICollectionViewDelegate
 
     func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
@@ -97,7 +101,11 @@ extension MainCollectionViewController: UISearchResultsUpdating {
 extension MainCollectionViewController: UICollectionViewReloader {
     func reload() {
         DispatchQueue.main.async {
-            self.uiCollectionView.reloadData()
+             let indexPath = IndexPath(row: self.viewModel.heroes.count - 1, section: 0)
+            self.uiCollectionView.performBatchUpdates({
+            self.uiCollectionView.insertItems(at: [indexPath])
+            }, completion: nil)
+
         }
     }
 

@@ -14,6 +14,11 @@ class MainCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var uiImageView: UIImageView!
     @IBOutlet weak var uiFavoriteButton: UIButton!
     @IBOutlet weak var uiLabel: UILabel!
+    var favorited: Bool = false {
+        didSet {
+            uiFavoriteButton.isSelected = favorited
+        }
+    }
     var text:String = "" {
         didSet {
             uiLabel.text = text
@@ -33,8 +38,6 @@ class MainCollectionViewCell: UICollectionViewCell {
        self.layer.borderColor = UIColor.gray.cgColor
     }
     
-    
-    
     func saveFavorite() {
         let imageData = uiImageView.image?.pngData()
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -52,6 +55,7 @@ class MainCollectionViewCell: UICollectionViewCell {
         } catch {
             print("Could not save. \(error), \(error.localizedDescription)")
         }
+        self.favorited = true
     }
     
     @IBAction func favoriteButtonAction(_ sender: Any) {

@@ -18,11 +18,11 @@ class MainCollectionViewModel {
     let searchController = UISearchController(searchResultsController: nil)
     var filteredHeroes: [String] = []
     var heroes: [Heroes] = []
+    let requestController = RequestController()
     
     func getInformation() {
-        let requestController = RequestController()
         requestController.getData(completion: { result in
-            self.heroes = result
+            self.heroes.append(contentsOf: result)
             self.delegate?.reload()
         })
 
