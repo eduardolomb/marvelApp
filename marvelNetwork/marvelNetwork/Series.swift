@@ -12,26 +12,26 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-public struct Characters : Codable {
-	let code : Int?
-	let status : String?
-	let copyright : String?
-	let attributionText : String?
-	let attributionHTML : String?
-	let etag : String?
-public let data : Data?
+struct Series : Codable {
+	let available : Int?
+	let collectionURI : String?
+	let items : [Items]?
+	let returned : Int?
 
+	enum CodingKeys: String, CodingKey {
 
+		case available = "available"
+		case collectionURI = "collectionURI"
+		case items = "items"
+		case returned = "returned"
+	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		code = try values.decodeIfPresent(Int.self, forKey: .code)
-		status = try values.decodeIfPresent(String.self, forKey: .status)
-		copyright = try values.decodeIfPresent(String.self, forKey: .copyright)
-		attributionText = try values.decodeIfPresent(String.self, forKey: .attributionText)
-		attributionHTML = try values.decodeIfPresent(String.self, forKey: .attributionHTML)
-		etag = try values.decodeIfPresent(String.self, forKey: .etag)
-		data = try values.decodeIfPresent(Data.self, forKey: .data)
+		available = try values.decodeIfPresent(Int.self, forKey: .available)
+		collectionURI = try values.decodeIfPresent(String.self, forKey: .collectionURI)
+		items = try values.decodeIfPresent([Items].self, forKey: .items)
+		returned = try values.decodeIfPresent(Int.self, forKey: .returned)
 	}
 
 }

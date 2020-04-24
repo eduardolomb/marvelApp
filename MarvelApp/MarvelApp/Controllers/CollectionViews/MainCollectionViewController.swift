@@ -7,19 +7,26 @@
 //
 
 import UIKit
+import Kingfisher
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "cell"
 
-class MainCollectionViewController: UICollectionViewController {
+class MainCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    @IBOutlet var uiCollectionView: UICollectionView!
     let viewModel = MainCollectionViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSearchBar()
         configureNavigationBar()
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        viewModel.getInformation()
+        viewModel.delegate = self
+        self.uiCollectionView.delegate = self
+        self.uiCollectionView.dataSource = self
+        self.uiCollectionView.register(UINib(nibName: "MainCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
 
+        
     }
     
     func configureSearchBar() {
@@ -44,45 +51,36 @@ class MainCollectionViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 0
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
 
 
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if viewModel.isFiltering {
                 return viewModel.filteredHeroes.count
               }
               return viewModel.heroes.count
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    //        let candy: Candy
-    //        if isFiltering {
-    //          candy = filteredHeroes[indexPath.row]
-    //        } else {
-    //          candy = heroes[indexPath.row]
-    //        }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
+        cell.text = viewModel.heroes[indexPath.row].name
+        if let url = URL(string: viewModel.heroes[indexPath.row].image) {
+            cell.image = url
+        }
 
-    
         return cell
+
     }
 
     // MARK: UICollectionViewDelegate
 
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
         return true
     }
     
 
-    /*
-     Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-    
     func filterContentForSearchText(_ searchText: String) {
     }
 
@@ -94,4 +92,19 @@ extension MainCollectionViewController: UISearchResultsUpdating {
     guard let searchText = searchBar.text else { return }
     filterContentForSearchText(searchText)
   }
+}
+
+extension MainCollectionViewController: UICollectionViewReloader {
+    func reload() {
+        DispatchQueue.main.async {
+            self.uiCollectionView.reloadData()
+        }
+    }
+
+}
+
+extension MainCollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 200, height: 230)
+    }
 }

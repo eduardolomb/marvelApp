@@ -12,26 +12,20 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-public struct Characters : Codable {
-	let code : Int?
-	let status : String?
-	let copyright : String?
-	let attributionText : String?
-	let attributionHTML : String?
-	let etag : String?
-public let data : Data?
+public struct Data : Codable {
+	let offset : Int?
+	public let limit : Int?
+	let total : Int?
+	let count : Int?
+    public let results : [Results]?
 
-
-
-	public init(from decoder: Decoder) throws {
+public init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		code = try values.decodeIfPresent(Int.self, forKey: .code)
-		status = try values.decodeIfPresent(String.self, forKey: .status)
-		copyright = try values.decodeIfPresent(String.self, forKey: .copyright)
-		attributionText = try values.decodeIfPresent(String.self, forKey: .attributionText)
-		attributionHTML = try values.decodeIfPresent(String.self, forKey: .attributionHTML)
-		etag = try values.decodeIfPresent(String.self, forKey: .etag)
-		data = try values.decodeIfPresent(Data.self, forKey: .data)
+		offset = try values.decodeIfPresent(Int.self, forKey: .offset)
+		limit = try values.decodeIfPresent(Int.self, forKey: .limit)
+		total = try values.decodeIfPresent(Int.self, forKey: .total)
+		count = try values.decodeIfPresent(Int.self, forKey: .count)
+		results = try values.decodeIfPresent([Results].self, forKey: .results)
 	}
 
 }

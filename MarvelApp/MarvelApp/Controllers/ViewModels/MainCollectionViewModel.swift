@@ -9,12 +9,25 @@
 import Foundation
 import UIKit
 
+protocol UICollectionViewReloader: AnyObject {
+    func reload()
+}
+
 class MainCollectionViewModel {
- 
+    weak var delegate: UICollectionViewReloader?
     let searchController = UISearchController(searchResultsController: nil)
-    
     var filteredHeroes: [String] = []
-    var heroes: [String] = []
+    var heroes: [Heroes] = []
+    
+    func getInformation() {
+        let requestController = RequestController()
+        requestController.getData(completion: { result in
+            self.heroes = result
+            self.delegate?.reload()
+        })
+
+    }
+    
     var isSearchBarEmpty: Bool {
       return searchController.searchBar.text?.isEmpty ?? true
     }
@@ -22,5 +35,6 @@ class MainCollectionViewModel {
     var isFiltering: Bool {
       return searchController.isActive && !isSearchBarEmpty
     }
+    
     
 }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,9 @@
 		6644C595244F84AE009B8DD6 /* Comics_SeriesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6644C593244F84AE009B8DD6 /* Comics_SeriesCollectionViewCell.xib */; };
 		6644C59A244F84DC009B8DD6 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6644C598244F84DC009B8DD6 /* MainCollectionViewCell.swift */; };
 		6644C59B244F84DC009B8DD6 /* MainCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6644C599244F84DC009B8DD6 /* MainCollectionViewCell.xib */; };
+		6645101F2452931B00E50CB6 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 6645101E2452931B00E50CB6 /* Kingfisher */; };
+		666F4DCC245279B700C11159 /* Heroes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666F4DCB245279B700C11159 /* Heroes.swift */; };
+		666F4DCE24527CD300C11159 /* requestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666F4DCD24527CD300C11159 /* requestController.swift */; };
 		66BD2DC52451103E00AC39F7 /* MainCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BD2DC42451103E00AC39F7 /* MainCollectionViewModel.swift */; };
 		66BD2DC72451104E00AC39F7 /* ComicsCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BD2DC62451104E00AC39F7 /* ComicsCollectionViewModel.swift */; };
 		66BD2DC92451127800AC39F7 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BD2DC82451127800AC39F7 /* DetailsViewModel.swift */; };
@@ -70,6 +73,8 @@
 		6644C593244F84AE009B8DD6 /* Comics_SeriesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Comics_SeriesCollectionViewCell.xib; sourceTree = "<group>"; };
 		6644C598244F84DC009B8DD6 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		6644C599244F84DC009B8DD6 /* MainCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCollectionViewCell.xib; sourceTree = "<group>"; };
+		666F4DCB245279B700C11159 /* Heroes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heroes.swift; sourceTree = "<group>"; };
+		666F4DCD24527CD300C11159 /* requestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = requestController.swift; sourceTree = "<group>"; };
 		66BD2DC42451103E00AC39F7 /* MainCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewModel.swift; sourceTree = "<group>"; };
 		66BD2DC62451104E00AC39F7 /* ComicsCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsCollectionViewModel.swift; sourceTree = "<group>"; };
 		66BD2DC82451127800AC39F7 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
@@ -82,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6645101F2452931B00E50CB6 /* Kingfisher in Frameworks */,
 				66EA8AA42452421500F6E9B8 /* marvelNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,6 +151,7 @@
 				66BD2DC32451101F00AC39F7 /* ViewModels */,
 				6644C58E244F8292009B8DD6 /* CollectionViews */,
 				66BD2DCA2451132800AC39F7 /* DetailsViewController.swift */,
+				666F4DCD24527CD300C11159 /* requestController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -206,6 +213,7 @@
 		666F4DC6245262AF00C11159 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				666F4DCB245279B700C11159 /* Heroes.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -245,6 +253,9 @@
 			dependencies = (
 			);
 			name = MarvelApp;
+			packageProductDependencies = (
+				6645101E2452931B00E50CB6 /* Kingfisher */,
+			);
 			productName = MarvelApp;
 			productReference = 6644C561244F740A009B8DD6 /* MarvelApp.app */;
 			productType = "com.apple.product-type.application";
@@ -295,6 +306,9 @@
 				Base,
 			);
 			mainGroup = 6644C558244F740A009B8DD6;
+			packageReferences = (
+				6645101D2452931B00E50CB6 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 6644C562244F740A009B8DD6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -337,10 +351,12 @@
 				6644C59A244F84DC009B8DD6 /* MainCollectionViewCell.swift in Sources */,
 				66BD2DCB2451132800AC39F7 /* DetailsViewController.swift in Sources */,
 				6644C58C244F8262009B8DD6 /* ComicsCollectionViewController.swift in Sources */,
+				666F4DCE24527CD300C11159 /* requestController.swift in Sources */,
 				6644C565244F740A009B8DD6 /* AppDelegate.swift in Sources */,
 				66BD2DC52451103E00AC39F7 /* MainCollectionViewModel.swift in Sources */,
 				6644C56F244F740B009B8DD6 /* MarvelApp.xcdatamodeld in Sources */,
 				66BD2DC92451127800AC39F7 /* DetailsViewModel.swift in Sources */,
+				666F4DCC245279B700C11159 /* Heroes.swift in Sources */,
 				66BD2DC72451104E00AC39F7 /* ComicsCollectionViewModel.swift in Sources */,
 				6644C567244F740A009B8DD6 /* SceneDelegate.swift in Sources */,
 			);
@@ -617,6 +633,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6645101D2452931B00E50CB6 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6645101E2452931B00E50CB6 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6645101D2452931B00E50CB6 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		6644C56D244F740B009B8DD6 /* MarvelApp.xcdatamodeld */ = {

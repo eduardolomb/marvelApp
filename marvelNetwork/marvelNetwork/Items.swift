@@ -12,26 +12,20 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-public struct Characters : Codable {
-	let code : Int?
-	let status : String?
-	let copyright : String?
-	let attributionText : String?
-	let attributionHTML : String?
-	let etag : String?
-public let data : Data?
+struct Items : Codable {
+	let resourceURI : String?
+	let name : String?
 
+	enum CodingKeys: String, CodingKey {
 
+		case resourceURI = "resourceURI"
+		case name = "name"
+	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		code = try values.decodeIfPresent(Int.self, forKey: .code)
-		status = try values.decodeIfPresent(String.self, forKey: .status)
-		copyright = try values.decodeIfPresent(String.self, forKey: .copyright)
-		attributionText = try values.decodeIfPresent(String.self, forKey: .attributionText)
-		attributionHTML = try values.decodeIfPresent(String.self, forKey: .attributionHTML)
-		etag = try values.decodeIfPresent(String.self, forKey: .etag)
-		data = try values.decodeIfPresent(Data.self, forKey: .data)
+		resourceURI = try values.decodeIfPresent(String.self, forKey: .resourceURI)
+		name = try values.decodeIfPresent(String.self, forKey: .name)
 	}
 
 }
