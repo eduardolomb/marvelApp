@@ -23,40 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 
-    // MARK: - Core Data stack
-
-    lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "MarvelApp")
-        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-        
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                print("Error ocurred, printing to log online tool \(error), \(error.userInfo)")
-                #if DEBUG
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-                #endif
-            }
-        })
-        return container
-    }()
-
-    // MARK: - Core Data Saving support
-
-    func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                let nserror = error as NSError
-                print("Error ocurred, printing to log online tool \(nserror), \(nserror.userInfo)")
-                #if DEBUG
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-                #endif
-            }
-        }
-    }
-
 }
 
 

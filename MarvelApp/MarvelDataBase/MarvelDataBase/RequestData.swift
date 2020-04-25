@@ -27,9 +27,9 @@ public class RequestData {
         })
         return container
     }()
-
+    
     // MARK: - Core Data Saving support
-    func saveContext () {
+   public func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {

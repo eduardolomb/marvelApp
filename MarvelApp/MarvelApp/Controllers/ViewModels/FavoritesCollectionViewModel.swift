@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 import UIKit
-import MarvelDataBase
 
 class FavoritesCollectionViewModel {
     weak var delegate: UICollectionViewReloader?
