@@ -13,7 +13,7 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 
 import Foundation
 public struct Results : Codable {
-	let id : Int?
+	public let id : Int?
 	public let name : String?
 	let description : String?
 	let modified : String?

@@ -14,6 +14,8 @@ class MainCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var uiImageView: UIImageView!
     @IBOutlet weak var uiFavoriteButton: UIButton!
     @IBOutlet weak var uiLabel: UILabel!
+    
+    var id: Int  = 0
     var favorited: Bool = false {
         didSet {
             uiFavoriteButton.isSelected = favorited
@@ -38,27 +40,29 @@ class MainCollectionViewCell: UICollectionViewCell {
        self.layer.borderColor = UIColor.gray.cgColor
     }
     
-    func saveFavorite() {
-        let imageData = uiImageView.image?.pngData()
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        let context = appDelegate.persistentContainer.viewContext
-        guard let favorite = NSEntityDescription.insertNewObject(forEntityName: "Favorites", into: context) as? Favorites else {
-              return
-        }
-        favorite.image = imageData
-        favorite.name = uiLabel.text
-        do {
-            try context.save()
-        } catch {
-            print("Could not save. \(error), \(error.localizedDescription)")
-        }
-        self.favorited = true
-    }
+//    func saveFavorite() {
+//        let imageData = self.image
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+//            return
+//        }
+//        
+//        let context = appDelegate.persistentContainer.viewContext
+//        guard let favorite = NSEntityDescription.insertNewObject(forEntityName: "Favorites", into: context) as? Favorites else {
+//              return
+//        }
+//        favorite.image = imageData.absoluteString
+//        favorite.name = uiLabel.text
+//        favorite.id = Int64(self.id)
+//        
+//        do {
+//            try context.save()
+//        } catch {
+//            print("Could not save. \(error), \(error.localizedDescription)")
+//        }
+//        self.favorited = true
+//    }
     
     @IBAction func favoriteButtonAction(_ sender: Any) {
-        self.saveFavorite()
+//        self.saveFavorite()
     }
 }

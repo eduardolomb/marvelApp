@@ -14,20 +14,28 @@ protocol UICollectionViewReloader: AnyObject {
 }
 
 class MainCollectionViewModel {
+    
+    let interactor = HomeInteractor()
     weak var delegate: UICollectionViewReloader?
     let searchController = UISearchController(searchResultsController: nil)
     var filteredHeroes: [String] = []
     var heroes: [Heroes] = []
-    let requestController = RequestController()
+    
     
     func getInformation() {
-        requestController.getData(completion: { result in
-            self.heroes.append(contentsOf: result)
-            self.delegate?.reload()
+        interactor.getDataFromNetwork(completion: { [weak self] result in
+            self?.heroes.append(contentsOf: result)
+            self?.delegate?.reload()
         })
-
     }
     
+    func saveFavorite(_ object: Heroes) {
+        interactor.saveObject(object)
+    }
+    
+    func removeFavorite(_ object: Heroes) {
+        interactor.removeObject(object)
+    }
     var isSearchBarEmpty: Bool {
       return searchController.searchBar.text?.isEmpty ?? true
     }

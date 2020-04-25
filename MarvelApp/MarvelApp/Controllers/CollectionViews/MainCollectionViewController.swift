@@ -69,9 +69,30 @@ class MainCollectionViewController: UIViewController, UICollectionViewDelegate, 
         if let url = URL(string: viewModel.heroes[indexPath.row].image) {
             cell.image = url
         }
+        
+        
         return cell
 
     }
+    
+    
+    func collectionView(_ colectionView:UICollectionView,
+    didSelectItemAt indexPath:IndexPath) {
+    let object = viewModel.heroes[indexPath.row]
+
+        let cell = colectionView.cellForItem(at: indexPath) as? MainCollectionViewCell
+        
+        if let favorited = cell?.favorited,
+            !favorited {
+            viewModel.saveFavorite(object)
+            cell?.favorited = true
+            return
+        }
+        cell?.favorited = false
+        viewModel.removeFavorite(object)
+
+    }
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.item > viewModel.heroes.count/2 {
             viewModel.getInformation()
