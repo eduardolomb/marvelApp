@@ -20,6 +20,7 @@ class HomeInteractor {
         self?.favoriteHeroes = result
         completion()
     })
+        completion()
     }
     
     func getDataFromNetwork(completion: @escaping ([Heroes]) -> Void) {

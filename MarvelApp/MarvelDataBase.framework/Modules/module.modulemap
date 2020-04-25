@@ -1,0 +1,11 @@
+framework module MarvelDataBase {
+  umbrella header "MarvelDataBase.h"
+
+  export *
+  module * { export * }
+}
+
+module MarvelDataBase.Swift {
+    header "MarvelDataBase-Swift.h"
+    requires objc
+}

@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct Heroes {
-    var id: Int
-    var name: String
-    var image: String
-    var favorite: Bool
+class Heroes {
+    var id: Int = 0
+    var name: String = String()
+    var image: String = String()
+    var favorite: Bool = false
 }

@@ -19,7 +19,7 @@ class MainCollectionViewModel {
     weak var delegate: UICollectionViewReloader?
     let searchController = UISearchController(searchResultsController: nil)
     var filteredHeroes: [String] = []
-    var heroes: [Heroes] = []
+    var heroes:[Heroes] = []
     
     
     func getInformation() {

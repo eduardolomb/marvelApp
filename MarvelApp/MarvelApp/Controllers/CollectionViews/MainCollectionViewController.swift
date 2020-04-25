@@ -69,7 +69,7 @@ class MainCollectionViewController: UIViewController, UICollectionViewDelegate, 
         if let url = URL(string: viewModel.heroes[indexPath.row].image) {
             cell.image = url
         }
-        
+        cell.favorited = viewModel.heroes[indexPath.row].favorite
         
         return cell
 
