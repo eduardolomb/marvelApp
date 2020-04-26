@@ -14,7 +14,7 @@ class MainCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var uiImageView: UIImageView!
     @IBOutlet weak var uiFavoriteButton: UIButton!
     @IBOutlet weak var uiLabel: UILabel!
-    
+    weak var delegate: SaveFavoriteDelegate?
     var id: Int  = 0
     var favorited: Bool = false {
         didSet {
@@ -30,7 +30,7 @@ class MainCollectionViewCell: UICollectionViewCell {
         didSet {
             let processor = DownsamplingImageProcessor(size: uiImageView.bounds.size)
             uiImageView.kf.indicatorType = .activity
-            uiImageView.kf.setImage(with: image, options: [.processor(processor)])
+            uiImageView.kf.setImage(with: image, options: [KingfisherOptionsInfoItem.processor(processor)])
         }
     }
     override func awakeFromNib() {
@@ -40,29 +40,16 @@ class MainCollectionViewCell: UICollectionViewCell {
        self.layer.borderColor = UIColor.gray.cgColor
     }
     
-//    func saveFavorite() {
-//        let imageData = self.image
-//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-//            return
-//        }
-//        
-//        let context = appDelegate.persistentContainer.viewContext
-//        guard let favorite = NSEntityDescription.insertNewObject(forEntityName: "Favorites", into: context) as? Favorites else {
-//              return
-//        }
-//        favorite.image = imageData.absoluteString
-//        favorite.name = uiLabel.text
-//        favorite.id = Int64(self.id)
-//        
-//        do {
-//            try context.save()
-//        } catch {
-//            print("Could not save. \(error), \(error.localizedDescription)")
-//        }
-//        self.favorited = true
-//    }
+    func saveFavorite() {
+        let heroe = Heroes()
+        heroe.image = self.image.absoluteString
+        heroe.name = self.text
+        heroe.id = self.id
+        delegate?.saveObject(heroe, shouldSave: self.favorited)
+    }
     
     @IBAction func favoriteButtonAction(_ sender: Any) {
-//        self.saveFavorite()
+       self.favorited = !self.favorited
+       self.saveFavorite()
     }
 }

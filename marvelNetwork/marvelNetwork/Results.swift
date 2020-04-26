@@ -15,7 +15,7 @@ import Foundation
 public struct Results : Codable {
 	public let id : Int?
 	public let name : String?
-	let description : String?
+	public let description : String?
 	let modified : String?
 	public let thumbnail : Thumbnail?
 	let resourceURI : String?

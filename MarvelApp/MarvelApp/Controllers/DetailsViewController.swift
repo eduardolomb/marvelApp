@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DetailsViewController: UIViewController {
 
-    let viewModel = DetailsViewModel()
+    var viewModel = DetailsViewModel()
     let comicSeriesViewModel = ComicsCollectionViewModel()
     
     @IBOutlet weak var uiDescription: UILabel!
@@ -24,10 +25,22 @@ class DetailsViewController: UIViewController {
         comicsCollectionView.dataSource = self
         seriesCollectionView.delegate = self
         seriesCollectionView.dataSource = self
-        
+        configureImage()
+        configureTexts()
+        self.title = viewModel.heroe.name
+       // self.uiImageView.image = 
         // Do any additional setup after loading the view.
     }
     
+    func configureTexts() {
+        uiDescription.text = viewModel.heroe.description
+    }
+    func configureImage() {
+        let url = URL(string: viewModel.heroe.image)
+        let processor = DownsamplingImageProcessor(size: uiImageView.bounds.size)
+        uiImageView.kf.indicatorType = .activity
+        uiImageView.kf.setImage(with: url, options: [KingfisherOptionsInfoItem.processor(processor)])
+    }
 
 
 }

@@ -9,8 +9,12 @@
 import UIKit
 import Kingfisher
 
-private let reuseIdentifier = "cell"
+protocol SaveFavoriteDelegate: AnyObject {
+    func saveObject(_ object:Heroes, shouldSave: Bool)
+}
 
+
+private let reuseIdentifier = "cell"
 class MainCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet var uiCollectionView: UICollectionView!
@@ -65,6 +69,7 @@ class MainCollectionViewController: UIViewController, UICollectionViewDelegate, 
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
+        cell.delegate = self
         cell.text = viewModel.heroes[indexPath.row].name
         if let url = URL(string: viewModel.heroes[indexPath.row].image) {
             cell.image = url
@@ -79,17 +84,14 @@ class MainCollectionViewController: UIViewController, UICollectionViewDelegate, 
     func collectionView(_ colectionView:UICollectionView,
     didSelectItemAt indexPath:IndexPath) {
     let object = viewModel.heroes[indexPath.row]
-
-        let cell = colectionView.cellForItem(at: indexPath) as? MainCollectionViewCell
+        let newController = self.storyboard?.instantiateViewController(identifier: Constants.detailsViewController) as? DetailsViewController
+        let viewModel = DetailsViewModel()
+        viewModel.heroe = object
+        newController?.viewModel = viewModel
         
-        if let favorited = cell?.favorited,
-            !favorited {
-            viewModel.saveFavorite(object)
-            cell?.favorited = true
-            return
+        if let controller = newController { self.navigationController?.pushViewController(controller, animated: true)
         }
-        cell?.favorited = false
-        viewModel.removeFavorite(object)
+
 
     }
     
@@ -134,6 +136,17 @@ extension MainCollectionViewController: UICollectionViewReloader {
 
 extension MainCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: 230)
+        return CGSize().getMainCellWidth()
     }
 }
+
+extension MainCollectionViewController: SaveFavoriteDelegate {
+    func saveObject(_ object: Heroes, shouldSave: Bool) {
+        if shouldSave {
+            viewModel.saveFavorite(object)
+            return
+        }
+        viewModel.removeFavorite(object)
+    }
+}
+

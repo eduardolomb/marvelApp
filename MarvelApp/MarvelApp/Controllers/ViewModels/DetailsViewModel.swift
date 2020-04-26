@@ -10,8 +10,9 @@ import Foundation
 import UIKit
 
 class DetailsViewModel {
-    var title: String = ""
-    var image: UIImage = UIImage()
-    var description: String = ""
+    var heroe: Heroes = Heroes()
+//    var title: String = String()
+//    var image: String = String()
+//    var description: String = ""
     
 }

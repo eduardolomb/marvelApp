@@ -12,5 +12,6 @@ class Heroes {
     var id: Int = 0
     var name: String = String()
     var image: String = String()
+    var description: String = String()
     var favorite: Bool = false
 }

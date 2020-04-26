@@ -29,6 +29,7 @@ class RequestController {
                 if let name = hero.name,
                     let image = hero.thumbnail?.path,
                     let ext = hero.thumbnail?.ext,
+                    let description = hero.description,
                     let id = hero.id {
                     let hero = Heroes()
                     hero.name = name
