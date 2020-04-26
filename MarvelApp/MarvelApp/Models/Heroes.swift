@@ -14,4 +14,6 @@ class Heroes {
     var image: String = String()
     var description: String = String()
     var favorite: Bool = false
+    var comics: [Comics] = []
+    var series: [Series] = []
 }

@@ -9,11 +9,24 @@
 import UIKit
 import Kingfisher
 
+enum StarImage: String {
+    case notfavorited = "star"
+    case favorited = "star.fill"
+}
+
 class DetailsViewController: UIViewController {
 
     var viewModel = DetailsViewModel()
     let comicSeriesViewModel = ComicsCollectionViewModel()
-    
+    var imageName = ""
+    var buttonItem = UIBarButtonItem()
+    var isFavorited: Bool = false {
+        didSet {
+            imageName = self.isFavorited ? StarImage.favorited.rawValue : StarImage.notfavorited.rawValue
+            buttonItem.image = UIImage(systemName: imageName)
+        }
+    }
+
     @IBOutlet weak var uiDescription: UILabel!
     @IBOutlet weak var uiImageView: UIImageView!
     @IBOutlet weak var comicsCollectionView: UICollectionView!
@@ -25,11 +38,29 @@ class DetailsViewController: UIViewController {
         comicsCollectionView.dataSource = self
         seriesCollectionView.delegate = self
         seriesCollectionView.dataSource = self
+        configureNavBar()
         configureImage()
         configureTexts()
+        configureCollectionViewModels()
         self.title = viewModel.heroe.name
-       // self.uiImageView.image = 
         // Do any additional setup after loading the view.
+    }
+    
+    
+    func configureNavBar() {
+        self.buttonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style:.plain, target: self, action: #selector(favTapped))
+        self.isFavorited = viewModel.heroe.favorite
+        navigationItem.rightBarButtonItem = buttonItem
+    }
+    
+    @objc func favTapped() {
+        if self.isFavorited {
+            viewModel.deleteObject()
+            self.isFavorited = !self.isFavorited
+            return
+        }
+        self.isFavorited = !self.isFavorited
+        viewModel.saveObject()
     }
     
     func configureTexts() {
@@ -41,7 +72,10 @@ class DetailsViewController: UIViewController {
         uiImageView.kf.indicatorType = .activity
         uiImageView.kf.setImage(with: url, options: [KingfisherOptionsInfoItem.processor(processor)])
     }
-
+    func configureCollectionViewModels() {
+        self.comicSeriesViewModel.comics = self.viewModel.comics
+        self.comicSeriesViewModel.series = self.viewModel.series
+    }
 
 }
 

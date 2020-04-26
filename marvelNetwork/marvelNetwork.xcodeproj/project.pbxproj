@@ -10,7 +10,6 @@
 		6644C542244D30BA009B8DD6 /* marvelNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6644C538244D30BA009B8DD6 /* marvelNetwork.framework */; };
 		6644C547244D30BA009B8DD6 /* marvelNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6644C546244D30BA009B8DD6 /* marvelNetworkTests.swift */; };
 		6644C549244D30BA009B8DD6 /* marvelNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 6644C53B244D30BA009B8DD6 /* marvelNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6644C553244D34AB009B8DD6 /* Charactersone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6644C552244D34AB009B8DD6 /* Charactersone.swift */; };
 		6644C557244D364F009B8DD6 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6644C556244D364F009B8DD6 /* Request.swift */; };
 		666F4DD9245288B200C11159 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666F4DCF245288B100C11159 /* Results.swift */; };
 		666F4DDA245288B200C11159 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666F4DD0245288B100C11159 /* Data.swift */; };
@@ -41,7 +40,6 @@
 		6644C541244D30BA009B8DD6 /* marvelNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = marvelNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6644C546244D30BA009B8DD6 /* marvelNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = marvelNetworkTests.swift; sourceTree = "<group>"; };
 		6644C548244D30BA009B8DD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6644C552244D34AB009B8DD6 /* Charactersone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Charactersone.swift; sourceTree = "<group>"; };
 		6644C556244D364F009B8DD6 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		666F4DCF245288B100C11159 /* Results.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		666F4DD0245288B100C11159 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 				666F4DD2245288B100C11159 /* Thumbnail.swift */,
 				666F4DD3245288B100C11159 /* Urls.swift */,
 				6644C53B244D30BA009B8DD6 /* marvelNetwork.h */,
-				6644C552244D34AB009B8DD6 /* Charactersone.swift */,
 				6644C53C244D30BA009B8DD6 /* Info.plist */,
 				6644C556244D364F009B8DD6 /* Request.swift */,
 			);
@@ -233,7 +230,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				666F4DD9245288B200C11159 /* Results.swift in Sources */,
-				6644C553244D34AB009B8DD6 /* Charactersone.swift in Sources */,
 				666F4DDC245288B200C11159 /* Thumbnail.swift in Sources */,
 				666F4DE0245288B200C11159 /* Stories.swift in Sources */,
 				666F4DE2245288B200C11159 /* Items.swift in Sources */,

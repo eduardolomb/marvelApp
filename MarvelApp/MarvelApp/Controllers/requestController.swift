@@ -26,26 +26,55 @@ class RequestController {
             self?.offset = (self?.offset ?? 0) * (result.data?.limit ?? 1)
             var trueHeroes: [Heroes] = []
             for hero in heroes {
-                if let name = hero.name,
-                    let image = hero.thumbnail?.path,
-                    let ext = hero.thumbnail?.ext,
-                    let description = hero.description,
-                    let id = hero.id {
-                    let hero = Heroes()
-                    hero.name = name
-                    hero.image = image + "." +  ext
-                    hero.id = id
-                    hero.favorite = false
-                    trueHeroes.append(hero)
-                }
+                self?.createCharacters(hero: hero, array: &trueHeroes)
             }
-            completion(trueHeroes)
+        completion(trueHeroes)
+        }
+            
+        }
+    
+    func createCharacters(hero: Results, array: inout [Heroes]) {
+        if let name = hero.name,
+            let image = hero.thumbnail?.path,
+            let ext = hero.thumbnail?.ext,
+            let description = hero.description,
+            let id = hero.id,
+            let comics = hero.comics?.items,
+            let series = hero.series?.items {
+            let hero = Heroes()
+            hero.name = name
+            hero.image = image + "." +  ext
+            hero.id = id
+            hero.favorite = false
+            hero.comics = self.createComics(comics)
+            hero.series = self.createSeries(series)
+            array.append(hero)
         }
     }
     
+    func createComics(_ comics:[Items]) -> [Comics] {
+        var comicsArray:[Comics] = []
+        
+        for comic in comics {
+            let appComic = Comics()
+            appComic.name = comic.name ?? String()
+            appComic.resource = comic.resourceURI ?? String()
+            comicsArray.append(appComic)
+        }
+        return comicsArray
+    }
+    func createSeries(_ series:[Items]) -> [Series] {
+        var seriesArray:[Series] = []
+        for serie in series {
+            let appSerie = Series()
+            appSerie.name = serie.name ?? String()
+            appSerie.resource = serie.resourceURI ?? String()
+            seriesArray.append(appSerie)
+        }
+        return seriesArray
+    }
     
     func getDataFromCoreData(completion: ([Heroes]) -> Void) {
-        
         database.getDataFromCoreData(completion: { [weak self] result in
             var favoriteHeroes:[Heroes] = []
             for data in result {
@@ -76,3 +105,4 @@ class RequestController {
         database.removeObject(object.id)
     }
 }
+

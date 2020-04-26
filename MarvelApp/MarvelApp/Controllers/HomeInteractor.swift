@@ -36,17 +36,30 @@ class HomeInteractor {
     
     private func compareData(completion: ([Heroes]) -> Void) {
         for heroe in favoriteHeroes {
-           var object = heroes.filter {$0.id == heroe.id}.first
+            let object = heroes.filter {$0.id == heroe.id}.first
                object?.favorite = true
         }
         completion(self.heroes)
     }
     
-    func saveObject(_ object:Heroes) {
-        requestController.saveObject(object)
+    func saveObject(object: Heroes, shouldSave: Bool) {
+            if let index = searchObject(object) {
+                self.heroes[index].favorite = shouldSave
+            }
+            if shouldSave {
+                requestController.saveObject(object)
+                return
+            }
+            requestController.removeObject(object)
     }
     
-    func removeObject(_ object:Heroes) {
-        requestController.removeObject(object)
-    }
+    func searchObject(_ object: Heroes) -> Int? {
+            for (index, value) in self.heroes.enumerated()
+               {
+                if value.id == object.id {
+                      return index
+                   }
+               }
+        return nil
+        }
 }

@@ -10,8 +10,8 @@ import Foundation
 
 class ComicsCollectionViewModel {
     
-    var series: [String] = []
-    var comics: [String] = []
+    var comics: [Comics] = []
+    var series: [Series] = []
     let comicsReusableIdentifier = "ComicsReusableCell"
     let seriesReusableIdentifier = "SeriesReusableCell"
     var isSeries: Bool {

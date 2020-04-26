@@ -11,8 +11,16 @@ import UIKit
 
 class DetailsViewModel {
     var heroe: Heroes = Heroes()
-//    var title: String = String()
-//    var image: String = String()
-//    var description: String = ""
+    var comics:[Comics] = []
+    var series:[Series] = []
     
+    let detailsInteractor = DetailsInteractor()
+    
+    func saveObject() {
+        detailsInteractor.saveObject(object: heroe)
+    }
+    
+    func deleteObject() {
+        detailsInteractor.deleteObject(object: heroe)
+    }
 }

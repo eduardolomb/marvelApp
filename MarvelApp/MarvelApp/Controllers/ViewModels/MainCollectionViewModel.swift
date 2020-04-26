@@ -29,13 +29,10 @@ class MainCollectionViewModel {
         })
     }
     
-    func saveFavorite(_ object: Heroes) {
-        interactor.saveObject(object)
+    func saveFavorite(object:Heroes, shouldSave: Bool) {
+        interactor.saveObject(object:object, shouldSave: shouldSave)
     }
     
-    func removeFavorite(_ object: Heroes) {
-        interactor.removeObject(object)
-    }
     var isSearchBarEmpty: Bool {
       return searchController.searchBar.text?.isEmpty ?? true
     }

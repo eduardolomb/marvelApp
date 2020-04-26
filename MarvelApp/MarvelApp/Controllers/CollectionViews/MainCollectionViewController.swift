@@ -74,6 +74,7 @@ class MainCollectionViewController: UIViewController, UICollectionViewDelegate, 
         if let url = URL(string: viewModel.heroes[indexPath.row].image) {
             cell.image = url
         }
+        cell.id = viewModel.heroes[indexPath.row].id
         cell.favorited = viewModel.heroes[indexPath.row].favorite
         
         return cell
@@ -87,6 +88,8 @@ class MainCollectionViewController: UIViewController, UICollectionViewDelegate, 
         let newController = self.storyboard?.instantiateViewController(identifier: Constants.detailsViewController) as? DetailsViewController
         let viewModel = DetailsViewModel()
         viewModel.heroe = object
+        viewModel.comics = object.comics
+        viewModel.series = object.series
         newController?.viewModel = viewModel
         
         if let controller = newController { self.navigationController?.pushViewController(controller, animated: true)
@@ -141,12 +144,9 @@ extension MainCollectionViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension MainCollectionViewController: SaveFavoriteDelegate {
+    
     func saveObject(_ object: Heroes, shouldSave: Bool) {
-        if shouldSave {
-            viewModel.saveFavorite(object)
-            return
-        }
-        viewModel.removeFavorite(object)
+        viewModel.saveFavorite(object: object, shouldSave: shouldSave)
     }
 }
 

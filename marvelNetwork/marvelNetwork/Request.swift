@@ -18,7 +18,7 @@ public typealias CompletionHandler = (_ success:Characters) -> Void
 public init() {}
 let apiKey = "757948084785697b972e93938cc60c53"
 let apiPrivateKey = "2c2a89b239fc9feac42d2c9ab49a335dd4d5ea3e"
-    /***** ***** ***** *****/
+/***** ***** ***** *****/
     
     
 // MARK: - request Methods
