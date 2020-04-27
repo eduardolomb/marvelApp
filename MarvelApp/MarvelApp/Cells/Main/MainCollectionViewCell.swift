@@ -15,6 +15,7 @@ class MainCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var uiFavoriteButton: UIButton!
     @IBOutlet weak var uiLabel: UILabel!
     weak var delegate: SaveFavoriteDelegate?
+    var series:[Series] = []
     var id: Int  = 0
     var favorited: Bool = false {
         didSet {
@@ -45,6 +46,8 @@ class MainCollectionViewCell: UICollectionViewCell {
         heroe.image = self.image.absoluteString
         heroe.name = self.text
         heroe.id = self.id
+//        heroe.comics =
+        heroe.series = self.series
         delegate?.saveObject(heroe, shouldSave: self.favorited)
     }
     

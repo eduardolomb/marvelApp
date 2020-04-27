@@ -75,8 +75,9 @@
                                                     <constraint firstAttribute="width" secondItem="qLn-md-kwT" secondAttribute="height" multiplier="1:1" id="YBz-eq-tj1"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUS-2z-cYr">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="lUS-2z-cYr">
                                                 <rect key="frame" x="20" y="237" width="374" height="110"/>
+                                                <color key="backgroundColor" red="0.94993258248730961" green="0.94993258248730961" blue="0.94993258248730961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="110" id="4rG-wB-Ptb"/>
                                                 </constraints>
@@ -84,26 +85,26 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZw-O7-47W">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Series" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZw-O7-47W">
                                                 <rect key="frame" x="20" y="377" width="374" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="30W-Sa-qHE">
-                                                <rect key="frame" x="20" y="408" width="374" height="150"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <rect key="frame" x="20" y="408" width="374" height="210"/>
+                                                <color key="backgroundColor" red="0.92169654187817263" green="0.92169654187817263" blue="0.92169654187817263" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="150" id="kzf-IU-bdK"/>
+                                                    <constraint firstAttribute="height" constant="210" id="kzf-IU-bdK"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XZM-x3-hkk">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XZM-x3-hkk">
                                                     <size key="itemSize" width="50" height="50"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6Kd-4I-w3x">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SeriesReusableCell" id="6Kd-4I-w3x">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="8Ci-VY-VqM">
@@ -114,7 +115,7 @@
                                                 </cells>
                                             </collectionView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Hrg-T3-ojY">
-                                                <rect key="frame" x="20" y="609" width="374" height="150"/>
+                                                <rect key="frame" x="20" y="669" width="374" height="150"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="QTB-SF-8IW"/>
@@ -126,7 +127,7 @@
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1Ik-Rp-klf">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SeriesReusableCell" id="1Ik-Rp-klf">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="E58-vN-lou">
@@ -136,8 +137,8 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Series" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYD-Ap-n78">
-                                                <rect key="frame" x="20" y="578" width="374" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYD-Ap-n78">
+                                                <rect key="frame" x="20" y="638" width="374" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -149,6 +150,7 @@
                                             <constraint firstItem="sdN-Xz-7hm" firstAttribute="leading" secondItem="N0P-Ba-0Q8" secondAttribute="leading" id="4WN-PQ-17p"/>
                                             <constraint firstAttribute="trailing" secondItem="30W-Sa-qHE" secondAttribute="trailing" constant="20" id="Cxq-2o-Vr9"/>
                                             <constraint firstItem="IZw-O7-47W" firstAttribute="top" secondItem="lUS-2z-cYr" secondAttribute="bottom" constant="30" id="HmV-Ba-NSU"/>
+                                            <constraint firstItem="IZw-O7-47W" firstAttribute="top" secondItem="qLn-md-kwT" secondAttribute="bottom" priority="750" constant="30" id="LdW-cS-s3M"/>
                                             <constraint firstItem="30W-Sa-qHE" firstAttribute="top" secondItem="IZw-O7-47W" secondAttribute="bottom" constant="10" id="PWC-1W-v6N"/>
                                             <constraint firstItem="RYD-Ap-n78" firstAttribute="leading" secondItem="N0P-Ba-0Q8" secondAttribute="leading" constant="20" id="QnL-hN-vKX"/>
                                             <constraint firstItem="sdN-Xz-7hm" firstAttribute="top" secondItem="N0P-Ba-0Q8" secondAttribute="top" id="QsC-2u-J12"/>
@@ -202,7 +204,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nKl-gn-oYH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3116" y="378"/>
+            <point key="canvasLocation" x="3115.9420289855075" y="377.67857142857139"/>
         </scene>
         <!--Personagens-->
         <scene sceneID="EVH-9u-bMY">

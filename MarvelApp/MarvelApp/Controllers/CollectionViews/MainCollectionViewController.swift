@@ -13,7 +13,6 @@ protocol SaveFavoriteDelegate: AnyObject {
     func saveObject(_ object:Heroes, shouldSave: Bool)
 }
 
-
 private let reuseIdentifier = "cell"
 class MainCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -29,10 +28,14 @@ class MainCollectionViewController: UIViewController, UICollectionViewDelegate, 
         self.uiCollectionView.delegate = self
         self.uiCollectionView.dataSource = self
         self.uiCollectionView.register(UINib(nibName: "MainCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
-
         
     }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.uiCollectionView.reloadData()
+    }
     func configureSearchBar() {
         viewModel.searchController.searchResultsUpdater = self
         viewModel.searchController.obscuresBackgroundDuringPresentation = false
@@ -74,8 +77,10 @@ class MainCollectionViewController: UIViewController, UICollectionViewDelegate, 
         if let url = URL(string: viewModel.heroes[indexPath.row].image) {
             cell.image = url
         }
+        cell.series = viewModel.heroes[indexPath.row].series
         cell.id = viewModel.heroes[indexPath.row].id
         cell.favorited = viewModel.heroes[indexPath.row].favorite
+        cell.accessibilityLabel = viewModel.heroes[indexPath.row].name
         
         return cell
 

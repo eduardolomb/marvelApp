@@ -46,15 +46,24 @@ class RequestController {
             hero.image = image + "." +  ext
             hero.id = id
             hero.favorite = false
+            hero.description = description
             hero.comics = self.createComics(comics)
             hero.series = self.createSeries(series)
             array.append(hero)
         }
     }
+    func requestSeries(url:String, completion:@escaping (String) -> Void) {
+        let request:Request = Request()
+            request.seriesUrl = url
+            request.requestSeries(completionHandler: {result in
+                let url = (result.data?.results?[0].thumbnail?.path ?? String()) +
+                    "." + (result.data?.results?[0].thumbnail?.ext ?? String())
+                completion(url)
+        })
+    }
     
     func createComics(_ comics:[Items]) -> [Comics] {
         var comicsArray:[Comics] = []
-        
         for comic in comics {
             let appComic = Comics()
             appComic.name = comic.name ?? String()
@@ -63,6 +72,8 @@ class RequestController {
         }
         return comicsArray
     }
+    
+
     func createSeries(_ series:[Items]) -> [Series] {
         var seriesArray:[Series] = []
         for serie in series {

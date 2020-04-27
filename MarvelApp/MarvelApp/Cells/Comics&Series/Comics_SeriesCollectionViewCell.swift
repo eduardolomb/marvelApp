@@ -7,14 +7,23 @@
 //
 
 import UIKit
+import Kingfisher
 
 class Comics_SeriesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var uiImageView: UIImageView!
     @IBOutlet weak var uiLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    var text = String() {
+        didSet {
+            uiLabel.text = text
+        }
     }
+    var image:URL? = URL(fileURLWithPath: "") {
+           didSet {
+               let processor = DownsamplingImageProcessor(size: uiImageView.bounds.size)
+               uiImageView.kf.indicatorType = .activity
+               uiImageView.kf.setImage(with: image, options: [KingfisherOptionsInfoItem.processor(processor)])
+           }
+       }
 
 }

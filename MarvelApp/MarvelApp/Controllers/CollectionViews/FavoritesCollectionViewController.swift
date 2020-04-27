@@ -55,6 +55,22 @@ class FavoritesCollectionViewController: UIViewController, UICollectionViewDeleg
 
         return cell
     }
+    
+    func collectionView(_ colectionView:UICollectionView,
+     didSelectItemAt indexPath:IndexPath) {
+     let object = viewModel.favoriteHeroes[indexPath.row]
+         let newController = self.storyboard?.instantiateViewController(identifier: Constants.detailsViewController) as? DetailsViewController
+         let viewModel = DetailsViewModel()
+         viewModel.heroe = object
+         viewModel.comics = object.comics
+         viewModel.series = object.series
+         newController?.viewModel = viewModel
+         
+         if let controller = newController { self.navigationController?.pushViewController(controller, animated: true)
+         }
+
+
+     }
 
     // MARK: UICollectionViewDelegate
 

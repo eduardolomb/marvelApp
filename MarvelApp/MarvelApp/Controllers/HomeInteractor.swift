@@ -52,7 +52,6 @@ class HomeInteractor {
             }
             requestController.removeObject(object)
     }
-    
     func searchObject(_ object: Heroes) -> Int? {
             for (index, value) in self.heroes.enumerated()
                {
@@ -62,4 +61,5 @@ class HomeInteractor {
                }
         return nil
         }
+    
 }

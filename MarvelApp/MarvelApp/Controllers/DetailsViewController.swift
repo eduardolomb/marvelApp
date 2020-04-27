@@ -36,8 +36,6 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         comicsCollectionView.delegate = self
         comicsCollectionView.dataSource = self
-        seriesCollectionView.delegate = self
-        seriesCollectionView.dataSource = self
         configureNavBar()
         configureImage()
         configureTexts()
@@ -64,6 +62,10 @@ class DetailsViewController: UIViewController {
     }
     
     func configureTexts() {
+        if viewModel.heroe.description == "" {
+            self.uiDescription.removeFromSuperview()
+            return
+        }
         uiDescription.text = viewModel.heroe.description
     }
     func configureImage() {
@@ -72,7 +74,11 @@ class DetailsViewController: UIViewController {
         uiImageView.kf.indicatorType = .activity
         uiImageView.kf.setImage(with: url, options: [KingfisherOptionsInfoItem.processor(processor)])
     }
+    
     func configureCollectionViewModels() {
+        self.comicsCollectionView.register(UINib(nibName: "Comics_SeriesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: comicSeriesViewModel.seriesReusableIdentifier)
+    
+
         self.comicSeriesViewModel.comics = self.viewModel.comics
         self.comicSeriesViewModel.series = self.viewModel.series
     }
@@ -82,27 +88,30 @@ class DetailsViewController: UIViewController {
 extension DetailsViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == seriesCollectionView {
                 return comicSeriesViewModel.series.count
-        }
-        return comicSeriesViewModel.comics.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == seriesCollectionView {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: comicSeriesViewModel.seriesReusableIdentifier, for: indexPath) as? Comics_SeriesCollectionViewCell {
-//            cell?.uiImageView.image = comicSeriesViewModel.series[indexPath.row]
-//            cell?.description = comicSeriesViewModel.series[indexPath.row]
+                let object = self.comicSeriesViewModel.series[indexPath.row]
+                self.comicSeriesViewModel.getData(url: object.resource, completion: { [weak self] url in
+                    DispatchQueue.main.async {
+                        cell.image = URL(string:url)
+                    }
+                })
+
+                cell.text = object.name
+                
             return cell
-            }
         }
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: comicSeriesViewModel.comicsReusableIdentifier, for: indexPath) as? Comics_SeriesCollectionViewCell {
-//           cell?.uiImageView.image = comicSeriesViewModel.comics[indexPath.row
-//            cell?.description = comicSeriesViewModel.comics[indexPath.row]
-            return cell
-            }
         return UICollectionViewCell()
     }
     
     
+}
+
+extension DetailsViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize().getSeriesCellWidth(count:CGFloat(self.comicSeriesViewModel.series.count))
+    }
 }

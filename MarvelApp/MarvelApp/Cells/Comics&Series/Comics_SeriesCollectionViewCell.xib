@@ -7,13 +7,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Comics_SeriesCollectionViewCell" customModule="MarvelApp" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="Comics_SeriesCollectionViewCell" customModule="MarvelApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="168" height="173"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SeriesReusableCell" id="gTV-IL-0wX" customClass="Comics_SeriesCollectionViewCell" customModule="MarvelApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="168" height="223"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="168" height="173"/>
+                <rect key="frame" x="0.0" y="0.0" width="168" height="223"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RRm-Hn-RLg">
@@ -23,8 +23,12 @@
                             <constraint firstAttribute="width" constant="114" id="cob-bE-a2T"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rm-2w-7hm">
-                        <rect key="frame" x="10" y="139" width="148" height="24"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rm-2w-7hm">
+                        <rect key="frame" x="10" y="139" width="148" height="74"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="148" id="rHW-kN-XwF"/>
+                            <constraint firstAttribute="height" constant="74" id="xTJ-0e-zSk"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -33,19 +37,21 @@
             </view>
             <constraints>
                 <constraint firstItem="RRm-Hn-RLg" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="4lX-4H-RvC"/>
-                <constraint firstAttribute="bottom" secondItem="6rm-2w-7hm" secondAttribute="bottom" constant="10" id="AuN-LW-LLS"/>
                 <constraint firstItem="6rm-2w-7hm" firstAttribute="top" secondItem="RRm-Hn-RLg" secondAttribute="bottom" constant="15" id="Fk8-6D-bfG"/>
+                <constraint firstItem="RRm-Hn-RLg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="27" id="Rux-Pv-aen"/>
+                <constraint firstAttribute="bottom" secondItem="6rm-2w-7hm" secondAttribute="bottom" constant="10" id="YSo-Gh-BHW"/>
+                <constraint firstAttribute="trailing" secondItem="RRm-Hn-RLg" secondAttribute="trailing" constant="27" id="dHg-QN-gTf"/>
                 <constraint firstItem="RRm-Hn-RLg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="mmo-4W-eox"/>
                 <constraint firstAttribute="trailing" secondItem="6rm-2w-7hm" secondAttribute="trailing" constant="10" id="zeA-qE-H7U"/>
                 <constraint firstItem="6rm-2w-7hm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="zhR-DJ-IcR"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="168" height="173"/>
+            <size key="customSize" width="168" height="223"/>
             <connections>
                 <outlet property="uiImageView" destination="RRm-Hn-RLg" id="6b6-vD-gdV"/>
                 <outlet property="uiLabel" destination="6rm-2w-7hm" id="Ozj-fM-7lq"/>
             </connections>
-            <point key="canvasLocation" x="223.18840579710147" y="177.79017857142856"/>
+            <point key="canvasLocation" x="223.18840579710147" y="194.53125"/>
         </collectionViewCell>
     </objects>
 </document>

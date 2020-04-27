@@ -17,4 +17,12 @@ class ComicsCollectionViewModel {
     var isSeries: Bool {
         return series.count != 0 && comics.count == 0
     }
+    
+    func getData(url: String,completion: @escaping (String) -> Void) {
+        let request = RequestController()
+        request.requestSeries(url: url, completion:
+            { result in
+                completion(result)
+        })
+    }
 }

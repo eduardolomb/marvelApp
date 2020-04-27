@@ -30,6 +30,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gm0-vy-qVz">
                                 <rect key="frame" x="93" y="0.0" width="33" height="22"/>
+                                <accessibility key="accessibilityConfiguration" identifier="favoritar"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="33" id="c8H-tv-O5T"/>
                                 </constraints>

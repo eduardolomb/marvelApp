@@ -21,7 +21,6 @@ class MainCollectionViewModel {
     var filteredHeroes: [String] = []
     var heroes:[Heroes] = []
     
-    
     func getInformation() {
         interactor.getDataFromNetwork(completion: { [weak self] result in
             self?.heroes.append(contentsOf: result)
